@@ -1,0 +1,33 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "a9550ae"
+  },
+  "schemaVersion": 16,
+  "id": "check-if-user-is-eligible-0fz6wyg",
+  "components": [
+    {
+      "text": "# Is {{userName}} Eligible for an upgrade?\n\n",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0dr70me",
+        "columns": null
+      },
+      "id": "Field_07mgkay"
+    },
+    {
+      "text": "=eligibleForUpgrade",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_09zkuxd",
+        "columns": null
+      },
+      "id": "Field_1enfbg8"
+    }
+  ],
+  "type": "default"
+}

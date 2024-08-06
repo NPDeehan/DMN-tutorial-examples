@@ -1,0 +1,104 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "a9550ae"
+  },
+  "schemaVersion": 16,
+  "id": "check-if-use-is-eligible-for-an-upgrade-0i4zm9r",
+  "components": [
+    {
+      "text": "# Eligibiliy Check",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1sobl9l",
+        "columns": null
+      },
+      "id": "Field_0ax2ett"
+    },
+    {
+      "label": "User's Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0gxi8tr",
+        "columns": null
+      },
+      "id": "Field_178khzb",
+      "key": "userName",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "VIP",
+          "value": "VIP"
+        },
+        {
+          "label": "Regular",
+          "value": "Regular"
+        }
+      ],
+      "label": "User Status",
+      "type": "select",
+      "layout": {
+        "row": "Row_18fnaer",
+        "columns": null
+      },
+      "id": "Field_0cg879p",
+      "key": "userStatus",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Engagement Score",
+      "type": "number",
+      "layout": {
+        "row": "Row_1y3g65x",
+        "columns": null
+      },
+      "id": "Field_1o30szo",
+      "key": "engagementScore",
+      "defaultValue": 0,
+      "increment": "5",
+      "validate": {
+        "required": true,
+        "min": 0,
+        "max": 100
+      }
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Date of Birth",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_1fhdvum",
+        "columns": null
+      },
+      "id": "Field_1cshpeo",
+      "key": "user_dob",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Is A Student",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_13plmfb",
+        "columns": null
+      },
+      "id": "Field_05i9ttc",
+      "key": "isStudent",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default"
+}

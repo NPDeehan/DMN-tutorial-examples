@@ -1,0 +1,173 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "80c4984"
+  },
+  "schemaVersion": 16,
+  "id": "Form_kbknwn7",
+  "components": [
+    {
+      "text": "# Eligibiliy Check",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1sobl9l",
+        "columns": null
+      },
+      "id": "Field_0ax2ett"
+    },
+    {
+      "label": "User's Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0gxi8tr",
+        "columns": null
+      },
+      "id": "Field_178khzb",
+      "key": "userName",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "VIP",
+          "value": "VIP"
+        },
+        {
+          "label": "Regular",
+          "value": "Regular"
+        }
+      ],
+      "label": "User Status",
+      "type": "select",
+      "layout": {
+        "row": "Row_0gxi8tr",
+        "columns": null
+      },
+      "id": "Field_0cg879p",
+      "key": "userStatus",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Date of Birth",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_0gxi8tr",
+        "columns": null
+      },
+      "id": "Field_1cshpeo",
+      "key": "user_dob",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Is A Student",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_13plmfb",
+        "columns": null
+      },
+      "id": "Field_05i9ttc",
+      "key": "isStudent",
+      "validate": {
+        "required": false
+      }
+    },
+    {
+      "text": "# Advanced Details",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_18jpw3f",
+        "columns": null
+      },
+      "id": "Field_1b3p4dt"
+    },
+    {
+      "label": "Years On Platform",
+      "type": "number",
+      "layout": {
+        "row": "Row_1kojlur",
+        "columns": null
+      },
+      "id": "Field_160nqnq",
+      "key": "yearsOnPlatform",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "values": [
+        {
+          "label": "Daily",
+          "value": "Daily"
+        },
+        {
+          "label": "Weekly",
+          "value": "Weekly"
+        },
+        {
+          "label": "Monthly",
+          "value": "Monthly"
+        },
+        {
+          "label": "Infrequent",
+          "value": "Infrequent"
+        }
+      ],
+      "label": "Engagement Frequency",
+      "type": "select",
+      "layout": {
+        "row": "Row_1kojlur",
+        "columns": null
+      },
+      "id": "Field_00g45fg",
+      "key": "engagementFrequency"
+    },
+    {
+      "values": [
+        {
+          "label": "Forum",
+          "value": "Forum"
+        },
+        {
+          "label": "Academy",
+          "value": "Academy"
+        },
+        {
+          "label": "Community",
+          "value": "Community"
+        }
+      ],
+      "label": "Accounts",
+      "type": "taglist",
+      "layout": {
+        "row": "Row_1kojlur",
+        "columns": null
+      },
+      "id": "Field_0ybf6rr",
+      "key": "accounts"
+    },
+    {
+      "label": "Community Contributor",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_14yfzms",
+        "columns": null
+      },
+      "id": "Field_14izqp7",
+      "key": "contributor",
+      "description": "Has the user contributed to the community"
+    }
+  ],
+  "type": "default"
+}
