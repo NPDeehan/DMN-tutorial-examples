@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1gn7qm9" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="f71eb94" camunda:diagramRelationId="7137013f-dccb-4041-aab6-064614da0723" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
+  <decision id="Decision_1vpqh8p" name="Decide on Upgrade">
+    <informationRequirement id="InformationRequirement_04uec6t">
+      <requiredInput href="#InputData_0al8mpt" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0dkg2v5">
+      <requiredInput href="#InputData_1xeyb2b" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0dk5riy">
+      <requiredInput href="#InputData_0306ucg" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1y6zfqd">
+      <requiredDecision href="#Decision_0hi7fm7" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1mffon1">
+      <requiredDecision href="#calculateEngagementScore" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_03c2ihw" hitPolicy="FIRST">
+      <input id="Input_1" label="User Status">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>userStatus</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0bizyj8">
+          <text>"VIP","Regular"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_08yhy9y" label="Engagement Socre">
+        <inputExpression id="LiteralExpression_0uwodjv" typeRef="number">
+          <text>calculateEngagementScore</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0n42mp5" label="Is Under 18">
+        <inputExpression id="LiteralExpression_12y28up" typeRef="boolean">
+          <text>isUnder18</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_15hdctd" label="Student">
+        <inputExpression id="LiteralExpression_16d67sh" typeRef="boolean">
+          <text>isStudent</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Is Eligible for Upgrade" name="eligibleForUpgrade" typeRef="boolean" />
+      <rule id="DecisionRule_0il56cd">
+        <inputEntry id="UnaryTests_1fdhnf3">
+          <text>"VIP"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c6zvf1">
+          <text>&gt;= 25</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o06nfv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gsbyx2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tkbezr">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dbjv6q">
+        <inputEntry id="UnaryTests_1ej7jft">
+          <text>"Regular"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n2uzrd">
+          <text>&lt;= 40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vw3fri">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16rynei">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ensdch">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jcy3xi">
+        <inputEntry id="UnaryTests_0mex0a0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10996my">
+          <text>&gt;= 20</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0puogfc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_020j6a4">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t0r9ei">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gqgx5i">
+        <inputEntry id="UnaryTests_16iicmh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zy5umu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_030uhd4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16c9tyt">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05woh43">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06ogwd9">
+        <inputEntry id="UnaryTests_0soykhq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12ef27i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rmuw97">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09b9hu1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00l08jv">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0al8mpt" name="Student" />
+  <inputData id="InputData_1xeyb2b" name="User Status" />
+  <inputData id="InputData_0306ucg" name="Engagement Score" />
+  <decision id="Decision_0hi7fm7" name="Decide if Under 18">
+    <variable id="InformationItem_0smrxze" name="isUnder18" typeRef="boolean" />
+    <informationRequirement id="InformationRequirement_016j2vy">
+      <requiredInput href="#InputData_0k3p5ct" />
+    </informationRequirement>
+    <knowledgeRequirement id="KnowledgeRequirement_0u9xl7e">
+      <requiredKnowledge href="#isUnder18Check" />
+    </knowledgeRequirement>
+    <literalExpression id="LiteralExpression_1sgq7w8">
+      <text>isUnder18(user_dob)
+</text>
+    </literalExpression>
+  </decision>
+  <inputData id="InputData_0k3p5ct" name="User Date of Birth" />
+  <businessKnowledgeModel id="isUnder18Check" name="isUnder18">
+    <variable id="InformationItem_1nbfif2" name="isUnder18" typeRef="boolean" />
+    <encapsulatedLogic id="FunctionDefinition_0lsgmvq">
+      <formalParameter name="user_dob" typeRef="string" />
+      <literalExpression id="LiteralExpression_18onnzf">
+        <text>years and months duration(date(user_dob), today()) &lt; duration("P18Y")</text>
+      </literalExpression>
+    </encapsulatedLogic>
+  </businessKnowledgeModel>
+  <decision id="calculateEngagementScore" name="Calculate Engagement Score">
+    <informationRequirement id="InformationRequirement_0sm8ux7">
+      <requiredInput href="#contributor" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0lb8zvl">
+      <requiredInput href="#yearsOnPlatform" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_130yo2l">
+      <requiredInput href="#engagementFrequency" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_105a5a7">
+      <requiredInput href="#accounts" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1vv9uvd" hitPolicy="COLLECT" aggregation="SUM">
+      <input id="InputClause_0hnlx1q" label="Contributions to the Community">
+        <inputExpression id="LiteralExpression_0e0xcyz" typeRef="boolean">
+          <text>contributor</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0uqpwk1" label="Years On Platform">
+        <inputExpression id="LiteralExpression_0lnz6g9" typeRef="number">
+          <text>yearsOnPlatform</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_10ysi6p" label="Accounts">
+        <inputExpression id="LiteralExpression_0ek4qgg" typeRef="string">
+          <text>accounts</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_052bzp7" label="Engagement Frequency">
+        <inputExpression id="LiteralExpression_1vzse5m" typeRef="string">
+          <text>engagementFrequency</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1syobkr">
+          <text>"Daily","Weekly","Monthly","Infrequent"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_1wlqln3" label="Engagement Score" name="engagementScore" typeRef="number" />
+      <rule id="DecisionRule_1fft3fg">
+        <inputEntry id="UnaryTests_0ijh6dz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ghvkis">
+          <text>&gt;2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ywfwic">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0elw3ti">
+          <text>"Weekly"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12ptmbu">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jq0dss">
+        <inputEntry id="UnaryTests_1h4i269">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oivu7k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xmo3xb">
+          <text>"Forum" in accounts</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13ddmaj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r8xmxk">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vej3q7">
+        <inputEntry id="UnaryTests_0i6bgu2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16qz9tr">
+          <text>&gt;5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1up4q1q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14rkvkt">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1181o7u">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19nryd1">
+        <inputEntry id="UnaryTests_1kcaqjp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00y487w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hewygc">
+          <text>list contains (accounts, "Forum") and list contains (accounts, "Community")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06ci2dl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a6afup">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19bu0rg">
+        <inputEntry id="UnaryTests_00bt9fx">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ytt06f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nl8560">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nhm68j">
+          <text>"Daily"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07j0kie">
+          <text>30</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0tu2qvx">
+        <inputEntry id="UnaryTests_0rwdonn">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0emyjia">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lmfocl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b0lv8r">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15w45hm">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gj46ck">
+        <inputEntry id="UnaryTests_0he1wg4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w6cb7m">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10cai06">
+          <text>"Academy" in accounts</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c5n7gc">
+          <text>"Monthly"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cnrluz">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hqmum6">
+        <inputEntry id="UnaryTests_1quiwju">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_082spe7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xcxi7m">
+          <text>"Academy" in accounts</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00zmobu">
+          <text>"Daily","Weekly"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03nhff6">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ued13x">
+        <inputEntry id="UnaryTests_1v3m3ck">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fe52f6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bk61lk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1grhfqk">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vr70z2">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="contributor" name="Contributions to the Community" />
+  <inputData id="yearsOnPlatform" name="Years on platform" />
+  <inputData id="engagementFrequency" name="Engagement Frequency" />
+  <inputData id="accounts" name="Accounts" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1vpqh8p">
+        <dc:Bounds height="80" width="180" x="640" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1hbxmhw" dmnElementRef="InputData_0al8mpt">
+        <dc:Bounds height="45" width="125" x="478" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_072wsq3" dmnElementRef="InformationRequirement_04uec6t">
+        <di:waypoint x="541" y="123" />
+        <di:waypoint x="685" y="180" />
+        <di:waypoint x="685" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_08zb1rt" dmnElementRef="InputData_1xeyb2b">
+        <dc:Bounds height="45" width="125" x="668" y="58" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1oh8e98" dmnElementRef="InformationRequirement_0dkg2v5">
+        <di:waypoint x="731" y="103" />
+        <di:waypoint x="730" y="180" />
+        <di:waypoint x="730" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0v4ve1c" dmnElementRef="InputData_0306ucg">
+        <dc:Bounds height="45" width="125" x="838" y="79" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ejz0qn" dmnElementRef="InformationRequirement_0dk5riy">
+        <di:waypoint x="901" y="124" />
+        <di:waypoint x="775" y="180" />
+        <di:waypoint x="775" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0mf4otp" dmnElementRef="Decision_0hi7fm7">
+        <dc:Bounds height="80" width="180" x="1100" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_01tqxvx" dmnElementRef="InformationRequirement_1y6zfqd">
+        <di:waypoint x="1100" y="240" />
+        <di:waypoint x="840" y="240" />
+        <di:waypoint x="820" y="240" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1ny6x35" dmnElementRef="InputData_0k3p5ct">
+        <dc:Bounds height="45" width="125" x="1138" y="59" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_141e69k" dmnElementRef="InformationRequirement_016j2vy">
+        <di:waypoint x="1201" y="104" />
+        <di:waypoint x="1190" y="180" />
+        <di:waypoint x="1190" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0imu5ja" dmnElementRef="KnowledgeRequirement_0u9xl7e">
+        <di:waypoint x="1191" y="377" />
+        <di:waypoint x="1190" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0zvzy3a" dmnElementRef="isUnder18Check">
+        <dc:Bounds height="46" width="135" x="1123" y="377" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_17u81yw" dmnElementRef="calculateEngagementScore">
+        <dc:Bounds height="80" width="180" x="390" y="360" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1tctrz6" dmnElementRef="InformationRequirement_1mffon1">
+        <di:waypoint x="480" y="360" />
+        <di:waypoint x="730" y="300" />
+        <di:waypoint x="730" y="280" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1af9wn6" dmnElementRef="contributor">
+        <dc:Bounds height="45" width="125" x="258" y="218" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1irba6u" dmnElementRef="InformationRequirement_0sm8ux7">
+        <di:waypoint x="321" y="263" />
+        <di:waypoint x="480" y="340" />
+        <di:waypoint x="480" y="360" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1brtz50" dmnElementRef="yearsOnPlatform">
+        <dc:Bounds height="45" width="125" x="158" y="318" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_05yyy03" dmnElementRef="InformationRequirement_0lb8zvl">
+        <di:waypoint x="283" y="341" />
+        <di:waypoint x="370" y="400" />
+        <di:waypoint x="390" y="400" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1bsli7n" dmnElementRef="engagementFrequency">
+        <dc:Bounds height="45" width="125" x="178" y="507" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1x6t17o" dmnElementRef="InformationRequirement_130yo2l">
+        <di:waypoint x="241" y="507" />
+        <di:waypoint x="450" y="460" />
+        <di:waypoint x="450" y="440" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0yds0p7" dmnElementRef="accounts">
+        <dc:Bounds height="45" width="125" x="468" y="518" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0j9yc4y" dmnElementRef="InformationRequirement_105a5a7">
+        <di:waypoint x="531" y="518" />
+        <di:waypoint x="510" y="460" />
+        <di:waypoint x="510" y="440" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
